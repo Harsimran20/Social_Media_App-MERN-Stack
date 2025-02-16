@@ -1,0 +1,29 @@
+/* ProfileSide Styling */
+.ProfileSide {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu Section */
+.Menu {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Menu Items Styling */
+.menu-items {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    display: flex;
+    flex-direction: row;
+    font-weight: 600;
+}

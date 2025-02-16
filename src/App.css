@@ -1,0 +1,35 @@
+.App{
+  overflow: hidden;
+  color: var(--black);
+  background: #f3f3f3;
+  padding: 1rem 1rem;
+}
+.blur{
+  position: absolute;
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: #ad66f0;
+  filter: blur(72px)
+}
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  font-size: large;
+  font-weight: 500;
+  border-radius: 30px;
+  background: var(--button8g);
+  transition: all 100ms ease-out;
+}
+.button:hover{
+  cursor: pointer;
+  color: var(--orange);
+  background: transparent;
+  border: 2px sol,id var(--orange);
+}
+::-webkit-scrollbar{
+  display: none;
+}
