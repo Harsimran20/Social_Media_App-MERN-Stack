@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Cover from "../../images/Cover.jpg";
-import Profile from "../../images/Profile.jpg"
 import "./ProfileCard.css";
 
 const ProfileCard = () => {
-    const [profileData, setProfileData] = useState({});
+    const [profileData, setProfileData] = useState(null); // Initialize as null
 
     const fetchInfo = async () => {
-        const formData = {
-            userId: localStorage.getItem("userId"),
-        };
+        try {
+            const response = await fetch('/profile/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            });
 
-        const response = await fetch("http://localhost:3000/api/profile/data", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+            console.log("Fetching profile info response", response);
 
-        console.log("Fetching profile info response", response);
-
-        if (response.ok) {
-            const resp = await response.json();
-            setProfileData(resp);
+            if (response.ok) {
+                const resp = await response.json();
+                setProfileData(resp);
+            } else {
+                console.error("Failed to fetch profile data");
+            }
+        } catch (error) {
+            console.error("Error fetching profile data:", error);
         }
     };
 
@@ -32,13 +33,29 @@ const ProfileCard = () => {
     }, []);
 
     return (
-        <div className="profile-card">
-            <img src={Cover} alt="Cover" />
-            <img src={Profile} alt="Profile" />
-            <h3>{profileData.name}</h3>
-            <p>{profileData.bio}</p>
-        </div>
+      <div className="ProfileImages">
+      <img src={Cover} alt="Cover" />
+      
+      {/* Statistics on the cover image */}
+      <div className="ProfileStats">
+          <div>
+              <span>{profileData?.followings ?? 0}</span>
+              <span className="textbased">Followings</span>
+          </div>
+          <div>
+              <span>{profileData?.followers ?? 0}</span>
+              <span className="textbased">Followers</span>
+          </div>
+          <div>
+              <span>{profileData?.posts ?? 0}</span>
+              <span className="textbased">Posts</span>
+          </div>
+      </div>
+  </div>
+  
     );
 };
 
 export default ProfileCard;
+
+
