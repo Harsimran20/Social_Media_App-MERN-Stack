@@ -1,33 +1,42 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import ProfileCard from '../ProfileCard/ProfileCard';
+import { UilSetting } from "@iconscout/react-unicons";
+import { Link } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-import PostSide from '../../components/PostSide/PostSide';
-import ProfileCard from '../../components/ProfileCard/ProfileCard';
-import ProfileLeft from '../../components/ProfileLeft/ProfileLeft';
-import RightSide from '../../components/RightSide/RightSide';
-import ProfileSide from '../../components/ProfileSide/ProfileSide';
+import "./ProfileSide.css";
 
-import './Profile.css';
-
-const Profile = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!localStorage.getItem('userId')) {
-      navigate('/');
-    }
-  }, []);
-
-  return (
-    <div className="Profile">
-      <ProfileLeft />
-      <div className="Profile-center">
-        <ProfileCard />
-        <PostSide />
-      </div>
-      <RightSide />
-    </div>
-  );
+const ProfileSide = () => {
+    return (
+        <div className="ProfileSide">
+            <ProfileCard />
+            <div className="Menu">
+                <Link to="/">
+                    <div className="menu-items">
+                        <HomeIcon style={{ marginRight: 10, color: "#3db3f3" }} />
+                        Home
+                    </div>
+                </Link>
+                <Link to="/profile">
+                    <div className="menu-items">
+                        <AccountCircleIcon style={{ marginRight: 10, color: "#3db3f3" }} />
+                        Profile
+                    </div>
+                </Link>
+                <Link to="/logout">
+                    <div className="menu-items">
+                        <LogoutIcon style={{ marginRight: 10, color: "#3db3f3" }} />
+                        Logout
+                    </div>
+                </Link>
+            </div>
+        </div>
+    );
 };
 
-export default Profile;
+export default ProfileSide;
+
+
+
