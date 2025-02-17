@@ -1,0 +1,72 @@
+/* General Styles */
+body {
+    background: #0d0d0d;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Post Box */
+.post-box {
+    background: #111;
+    padding: 15px;
+    border-radius: 10px;
+    width: 500px;
+    margin: 20px auto;
+}
+
+.post-box input {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Media Buttons */
+.media-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.media-options button {
+    background: transparent;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.media-options button img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+/* Post Button */
+.post-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.post-button:hover {
+    background: #0056b3;
+}
+
+/* Posts Section */
+.posts {
+    margin: 20px auto;
+    width: 500px;
+}
